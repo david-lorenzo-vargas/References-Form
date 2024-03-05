@@ -60,6 +60,8 @@ Once the form is validated and the submit button gets clicked, we check if the f
 
 The API call gets called in a funcion abstracted into a utility inside Util/API/postReferencesForm.ts. The end point URL is declared in a `.env` file and access it via dotenv library for security reasons. The URL is passed to fetch function as follows `process.env.POST_URL`.
 
+To be able to run and test the code a `.env` would need to be created in the root of the project and declare the `POST_URL`.
+
 ## Types
 
 All types and enums have been declared in a `Types/types.ts`
