@@ -25,19 +25,20 @@ Form that collects information from a tenant for checking references.
 All the fields are required and the validation patterns need to be fullfiled in order to be able to send the information. Once the validation is fullfiled the "Send" button gets enabled and the form can be sent.
 <br><br>
 Validation:
+<br>
   -Inputs: name fields can only accept letters, if the user types a number or a special character a warning test gets rendered.
   -Dates: end date needs to be higer that start date, if the user selects a day that is in the past in relation to the start date a warning text gets rendered and the "Send" button wont be enabled.
 <br><br>
 
 ## Stack
 
-Next.js,
-Typescript,
-Tailwind,
-React Hook Form,
-Jest,
-React Testing Library,
-React-datepicker
+-Next.js,
+-Typescript,
+-Tailwind,
+-React Hook Form,
+-Jest,
+-React Testing Library,
+-React-datepicker
 
 ## React Hook Form
 
