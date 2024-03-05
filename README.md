@@ -31,6 +31,8 @@ Validation:
     <li>Dates: end date needs to be higer that start date, if the user selects a day that is in the past in relation to the start date a warning text gets rendered and the "Send" button wont be enabled.</li>
   </ul>
 
+![Mar-05-2024 23-19-05](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/2a2b0053-070d-43b2-86a6-139e7ba25573)
+
 ## Stack
 
 <ul>
