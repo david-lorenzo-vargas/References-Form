@@ -32,13 +32,15 @@ Validation:
 
 ## Stack
 
-*Next.js,
-*Typescript,
-*Tailwind,
-*React Hook Form,
-*Jest,
-*React Testing Library,
-*React-datepicker
+<ul>
+  <li>Next.js</li>
+  <li>Typescript</li>
+  <li>Tailwind</li>
+  <li>React Hook Form</li>
+  <li>Jest</li>
+  <li>React Testing Library</li>
+  <li>React-datepicker</li>
+<ul>
 
 ## React Hook Form
 
