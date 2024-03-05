@@ -30,7 +30,6 @@ Validation:
     <li>Inputs: name fields can only accept letters, if the user types a number or a special character a warning test gets rendered</li>
     <li>Dates: end date needs to be higer that start date, if the user selects a day that is in the past in relation to the start date a warning text gets rendered and the "Send" button wont be enabled.</li>
   </ul>
-<br><br>
 
 ## Stack
 
