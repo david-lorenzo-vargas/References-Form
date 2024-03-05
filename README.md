@@ -35,6 +35,10 @@ Validation:
 
 ![Mar-05-2024 23-19-05](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/2a2b0053-070d-43b2-86a6-139e7ba25573)
 
+### Form fields
+
+![Mar-05-2024 23-32-52](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/04d831af-5d82-45b2-b4dd-7e8a81aa3dd2)
+
 ### Name validation
 
 ![Mar-05-2024 23-23-01](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/c282bc2f-b248-4e1d-a994-34a8cdfdb554)
