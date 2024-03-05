@@ -26,8 +26,10 @@ All the fields are required and the validation patterns need to be fullfiled in 
 <br><br>
 Validation:
 <br>
-  -Inputs: name fields can only accept letters, if the user types a number or a special character a warning test gets rendered.
-  -Dates: end date needs to be higer that start date, if the user selects a day that is in the past in relation to the start date a warning text gets rendered and the "Send" button wont be enabled.
+  <ul>
+    <li>Inputs: name fields can only accept letters, if the user types a number or a special character a warning test gets rendered</li>
+    <li>Dates: end date needs to be higer that start date, if the user selects a day that is in the past in relation to the start date a warning text gets rendered and the "Send" button wont be enabled.</li>
+  </ul>
 <br><br>
 
 ## Stack
@@ -40,8 +42,7 @@ Validation:
   <li>Jest</li>
   <li>React Testing Library</li>
   <li>React-datepicker</li>
-<ul>
-<br><br>
+</ul>
 
 ## React Hook Form
 
