@@ -99,3 +99,12 @@ Atomic approach has been used for structuring and ordering the componets separat
 Jest and React Testing Library have been used for testing. I have added testing to some components but, as further implementation, it would be necessary to add more unit and integration testing for other functionalities and components.
 
 For running tests: `npm run test`
+
+## Accessibility
+
+Native HTML tags have been used for accessibility as well as WAI-ARIA Roles. This would help web reading tools to ensure a good accessibility.
+
+A 89 overall scored achieved in Lighthouse tool
+
+![Screenshot 2024-03-05 at 23 55 37](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/8b31256b-b35f-4e4d-bc33-3e1982f12f10)
+
