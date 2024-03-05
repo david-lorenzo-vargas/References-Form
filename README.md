@@ -35,6 +35,22 @@ Validation:
 
 ![Mar-05-2024 23-19-05](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/2a2b0053-070d-43b2-86a6-139e7ba25573)
 
+### Name validation
+
+![Mar-05-2024 23-23-01](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/c282bc2f-b248-4e1d-a994-34a8cdfdb554)
+
+### Date validation
+
+![Mar-05-2024 23-25-38](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/031c2cc0-493f-43d5-a2a1-9a2ad86c2fff)
+
+### Currently working
+
+![Mar-05-2024 23-26-25](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/5f5b5d1b-b2f2-46a0-9630-97538f9f4405)
+
+### Reset form
+
+![Mar-05-2024 23-27-12](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/fa0cbf30-aa00-4485-acb7-54a494be9a48)
+
 ## Stack
 
 <ul>
