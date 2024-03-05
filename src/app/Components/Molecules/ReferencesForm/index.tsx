@@ -91,8 +91,6 @@ const ReferencesForm = (): ReactElement => {
     setCurrentlyWorking(() => false);
   }, []);
 
-  console.log(watch(), 'watch');
-
   return (
     <>
       {formState.isSubmitted ? (
