@@ -142,5 +142,16 @@ The app is responsive and adjusts to desktop, tablet and mobile viewports, some 
 
 ![Screenshot 2024-03-06 at 10 49 28](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/6082870f-20ff-4f7c-aaf7-e7c976f9e638)
 
+## Further implementation
+
+<ul>
+  <li>
+    A button that would allow the user to add multiple Employer information
+  </li>
+  <li>
+    Implement localStorage for storing the progress and allowing the user to resume the form where it was left
+  </li>
+</ul>
+
 
 
