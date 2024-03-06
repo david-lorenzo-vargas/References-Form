@@ -152,7 +152,7 @@ The app is responsive and adjusts to desktop, tablet and mobile viewports, some 
     Implement localStorage for storing the progress and allowing the user to resume the form where it was left
   </li>
   <li>
-    Third party API integration for address elastic search eg. [Geoapify](https://www.geoapify.com/solutions/address-lookup)
+    Third party API integration for address elastic search eg. https://www.geoapify.com/solutions/address-lookup
   </li>
 </ul>
 
