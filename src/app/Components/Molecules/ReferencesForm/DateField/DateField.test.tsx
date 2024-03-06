@@ -1,6 +1,4 @@
-import { render, screen, waitFor, fireEvent, getByTestId } from '@testing-library/react';
-import { beforeEach, describe } from 'node:test';
-
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import DateField from '.';
 
 const mockOnClick = jest.fn();
@@ -13,19 +11,20 @@ const renderDateField = (date?: Date | undefined) =>
       onDateField={() => mockOnClick()}
       date={date}
       placeholder={placeholder}
+      buttonId="buttonId"
     />);
 
-describe('dateField', () => {
+describe('DateField', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  test('should render', () => {
+  it('should render', () => {
     renderDateField();
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
-  test('should call onDateField when button is clicked and is not disabled', async () => {
+  it('should call onDateField when button is clicked and is not disabled', async () => {
     renderDateField();
     fireEvent.click(screen.getByRole('button', {name: 'dateFieldButton'}));
     await waitFor(() => {
@@ -33,12 +32,12 @@ describe('dateField', () => {
     });
   });
 
-  test('should render placeholder if date is not passed as props', () => {
+  it('should render placeholder if date is not passed as props', () => {
     renderDateField();
     expect(screen.getByText(placeholder)).toBeInTheDocument();
   });
 
-  test('should render date if date is passed as props instead of placeholder', () => {
+  it('should render date if date is passed as props instead of placeholder', () => {
     renderDateField(new Date());
     expect(screen.getByText(new Date().toLocaleDateString())).toBeInTheDocument();
   });

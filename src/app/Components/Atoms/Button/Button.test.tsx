@@ -1,6 +1,4 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
-import { beforeEach, describe } from 'node:test';
-
 import Button from '.';
 
 const mockOnClick = jest.fn();
@@ -16,23 +14,23 @@ const ChildComponent = () => {
 const renderButton = (disabled: boolean = false) =>
   render(<Button disabled={disabled} id={id} onClick={() => mockOnClick()} type={type}><ChildComponent /></Button>);
 
-describe('dropdown', () => {
+describe('Button', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  test('should render', () => {
+  it('should render', () => {
     renderButton();
     expect(screen.getByTitle(id)).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
-  test('should not be disabled when passed false', () => {
+  it('should not be disabled when passed false', () => {
     renderButton();
     expect(screen.getByRole('button')).not.toHaveAttribute('disabled');
   });
 
-  test('should call onClick when button is clicked', async () => {
+  it('should call onClick when button is clicked', async () => {
     renderButton();
     fireEvent.click(screen.getByTitle(id));
     await waitFor(() => {
@@ -40,7 +38,7 @@ describe('dropdown', () => {
     });
   });
 
-  test('should render a child component', () => {
+  it('should render a child component', () => {
     renderButton();
     expect(screen.getByTestId("ChildComponent")).toBeInTheDocument();
   });

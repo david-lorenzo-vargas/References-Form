@@ -1,5 +1,4 @@
 import { render, screen, waitFor, fireEvent, getByTestId } from '@testing-library/react';
-import { beforeEach, describe } from 'node:test';
 
 import Modal from '.';
 
@@ -15,17 +14,17 @@ const ChildComponent = () => {
 const renderModal = () =>
   render(<Modal title={title} onClose={() => mockOnClick()}><ChildComponent /></Modal>);
 
-describe('modal', () => {
+describe('Modal', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  test('should render', () => {
+  it('should render', () => {
     renderModal();
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
-  test('should call onClose when button is clicked', async () => {
+  it('should call onClose when button is clicked', async () => {
     renderModal();
     fireEvent.click(screen.getByRole('button', {name: 'closeButton'}));
     await waitFor(() => {
@@ -33,7 +32,7 @@ describe('modal', () => {
     });
   });
 
-  test('should render a child component', () => {
+  it('should render a child component', () => {
     renderModal();
     expect(screen.getByTestId("ChildComponent")).toBeInTheDocument();
   });

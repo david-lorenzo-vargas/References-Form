@@ -1,7 +1,5 @@
-import * as ReactHookForm from "react-hook-form";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import ReferencesForm from ".";
-import { RelationShipEnum } from "../../../../../Types/types";
 
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
@@ -16,7 +14,6 @@ describe('RefrencesForm', () => {
   beforeEach(() => {
     originalDate = global.Date;
     dateSpy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
-
   });
 
   afterEach(() => {
@@ -40,7 +37,7 @@ describe('RefrencesForm', () => {
     expect(screen.getByRole('button', { name: 'Send' })).toBeInTheDocument();
   });
 
-  it('send button should be active when all the fields are filled in and send data when clicked', async () => {
+  it('should be able to fill out all form fields', async () => {
     renderForm();
 
     const submitButton = screen.getByRole('button', { name: 'Send' });

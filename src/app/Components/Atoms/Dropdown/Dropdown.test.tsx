@@ -1,9 +1,6 @@
 
 import { render, screen, fireEvent } from '@testing-library/react';
-import { beforeEach, describe } from 'node:test';
-import userEvent from '@testing-library/user-event';
 import { UseFormRegisterReturn } from 'react-hook-form';
-
 import Dropdown from '.';
 import { RelationShipEnum } from '../../../../../Types/types';
 
@@ -32,12 +29,12 @@ const renderDropdown = (register?: UseFormRegisterReturn) =>
     {...register}
   />);
 
-describe('dropdown', () => {
+describe('Dropdown', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  test('should render', () => {
+  it('should render', () => {
     renderDropdown();
     expect(screen.getByRole('label', {name: label})).toBeInTheDocument();
   });
