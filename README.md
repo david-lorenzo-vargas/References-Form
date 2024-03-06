@@ -104,7 +104,7 @@ For running tests: `npm run test`
 
 Native HTML tags have been used for accessibility as well as WAI-ARIA Roles. This would help web reading tools to ensure a good accessibility.
 
-A 89 overall scored achieved in Lighthouse tool
+A 89 overall score achieved in Lighthouse tool
 
 ![Screenshot 2024-03-05 at 23 55 37](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/8b31256b-b35f-4e4d-bc33-3e1982f12f10)
 
