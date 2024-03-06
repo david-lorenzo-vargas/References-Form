@@ -193,7 +193,7 @@ const ReferencesForm = (): ReactElement => {
                           errorMessage={formState.errors.employerName?.message}
                         />
                       </div>
-                      <div className="mb-3 flex flex-row items-center -mx-2">
+                      <div className="mb-3 flex flex-col md:flex-row items-center -mx-2">
                         <div className="px-2">
                           <DateField
                             title="Employment start date"
