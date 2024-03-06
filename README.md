@@ -73,8 +73,12 @@ Validation:
 
 React Hook Form used for managing the form. All the inputs are wrapped in a `<form>` tag and registered to the form by passing `register` function as prop. Atom components receive register prop and it is spread to have the input registered in the form. Form Submit button does not accept onClick as it receives `type='submit'` and the submit functionality of the form is handled by passing `onSubmit={handleSubmit(submit)}` that comes from `useForm`.
 <br><br>
-Validation has been implemented via `register` by passing an object as a second argument where all the inputs are required and they have an specific pattern they need to meet in order to be valid eg: 
-  ```register={register("employerName", {required: true, validate: (value: string) => { if (!nameRegex.test(value)) { return "Sorry, numbers and special characters are not allowed"} return true; }})} errorMessage={formState.errors.employerName?.message}```.
+Validation has been implemented via `register` by passing an object as a second argument where all the inputs are required and they have an specific pattern they need to meet in order to be valid eg:
+
+  ```bash
+  register={register("employerName", {required: true, validate: (value: string) => { if (!nameRegex.test(value)) { return "Sorry, numbers and special characters are not allowed"} return true; }})} errorMessage={formState.errors.employerName?.message}
+```.
+
 <br><br>
 If the validation is not passed, a warning text gets rendered. The message is recevied from `formState.errors.inputName.message`.
 <br><br>
