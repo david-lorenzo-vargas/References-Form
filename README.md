@@ -127,6 +127,20 @@ An 89 overall score achieved in Lighthouse tool
 
 The app is responsive and adjusts to desktop, tablet and mobile viewports, some media queries have been added via Tailwind for adjusting the design to the screen size.
 
+### Mobile
+
 ![Mar-06-2024 00-20-08](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/112faa13-b53f-4479-8739-55d4d96c52c6)
+
+### Tablet
+
+![Screenshot 2024-03-06 at 10 48 55](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/3290356b-c545-4274-b325-9183f0e8cc96)
+
+![Screenshot 2024-03-06 at 10 49 13](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/5aec0ee2-2278-4b70-9bf1-ee23bbb8b39b)
+
+
+### Desktop
+
+![Screenshot 2024-03-06 at 10 49 28](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/6082870f-20ff-4f7c-aaf7-e7c976f9e638)
+
 
 
