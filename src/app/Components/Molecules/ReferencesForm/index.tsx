@@ -194,7 +194,7 @@ const ReferencesForm = (): ReactElement => {
                         />
                       </div>
                       <div className="mb-3 flex flex-col md:flex-row items-center -mx-2">
-                        <div className="px-2">
+                        <div className="px-2 w-full">
                           <DateField
                             title="Employment start date"
                             placeholder="Select start date"
@@ -203,7 +203,7 @@ const ReferencesForm = (): ReactElement => {
                             buttonId="dateFieldFrom"
                           />
                         </div>
-                        <div className="px-2">
+                        <div className="px-2 w-full">
                           <DateField
                             title="Employment end date"
                             placeholder="Select end date"
@@ -220,7 +220,7 @@ const ReferencesForm = (): ReactElement => {
                         </span>
                       )}
                       <div
-                        className="flex flex-row items-center justify-end mb-3 cursor-pointer"
+                        className="flex flex-row items-center md:justify-end mb-3 cursor-pointer"
                         onClick={onCurrentlyWorking}
                       >
                         <CheckBox
