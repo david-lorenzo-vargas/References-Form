@@ -335,7 +335,6 @@ const ReferencesForm = (): ReactElement => {
                   control={control}
                   rules={{
                     required: true,
-                    pattern: undefined,
                   }}
                   name={`${dateModal === DateModal.from ? 'startDate' : 'endDate'}`}
                   render={({ field }: { field: ControllerRenderProps<FormFields, 'endDate' | 'startDate'> }) => (
