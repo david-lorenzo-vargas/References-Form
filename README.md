@@ -49,7 +49,7 @@ Validation:
 
 ![Mar-05-2024 23-25-38](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/031c2cc0-493f-43d5-a2a1-9a2ad86c2fff)
 
-### Currently working
+### Currently employer
 
 ![Mar-05-2024 23-26-25](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/5f5b5d1b-b2f2-46a0-9630-97538f9f4405)
 
@@ -150,6 +150,9 @@ The app is responsive and adjusts to desktop, tablet and mobile viewports, some 
   </li>
   <li>
     Implement localStorage for storing the progress and allowing the user to resume the form where it was left
+  </li>
+  <li>
+    Third party API integration for address elastic search eg. [Geoapify](https://www.geoapify.com/solutions/address-lookup)
   </li>
 </ul>
 
