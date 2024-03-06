@@ -108,7 +108,7 @@ A 89 overall scored achieved in Lighthouse tool
 
 ![Screenshot 2024-03-05 at 23 55 37](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/8b31256b-b35f-4e4d-bc33-3e1982f12f10)
 
-## Responsivness
+## Responsiveness
 
 The app is responsive it works woth in desktop and mobile, some media queries have been added via Tailwind for adjusting the design to the screen size.
 
