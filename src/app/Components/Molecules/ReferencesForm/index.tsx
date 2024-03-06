@@ -33,6 +33,10 @@ import { formatReferencesPostBody } from "../../../../../Util/formatReferencesPo
 
 const dropdownOptions = [
   {
+    key: RelationShipEnum.parent,
+    label: 'Parent'
+  },
+  {
     key: RelationShipEnum.sibling,
     label: 'Sibling'
   },

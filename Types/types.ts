@@ -40,6 +40,7 @@ export type ReferencesDataObject = {
 }
 
 export enum RelationShipEnum {
+  parent = 'parent',
   sibling = 'sibling',
   employer = 'employer',
   other = 'other'
