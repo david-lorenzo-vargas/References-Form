@@ -76,8 +76,8 @@ React Hook Form used for managing the form. All the inputs are wrapped in a `<fo
 Validation has been implemented via `register` by passing an object as a second argument where all the inputs are required and they have an specific pattern they need to meet in order to be valid eg:
 
   ```bash
-  register={register("employerName", {required: true, validate: (value: string) => { if (!nameRegex.test(value)) { return "Sorry, numbers and special characters are not allowed"} return true; }})} errorMessage={formState.errors.employerName?.message}
-```.
+  register={register("employerName", {required: true, validate: (value: string) => { if (!nameRegex.test(value)) { return "Sorry, numbers and special characters are not allowed"} return true; }})} errorMessage=  {formState.errors.employerName?.message}
+```
 
 <br><br>
 If the validation is not passed, a warning text gets rendered. The message is recevied from `formState.errors.inputName.message`.
