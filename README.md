@@ -108,3 +108,8 @@ A 89 overall scored achieved in Lighthouse tool
 
 ![Screenshot 2024-03-05 at 23 55 37](https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/8b31256b-b35f-4e4d-bc33-3e1982f12f10)
 
+Wave has also been used for checking errors and accessibility. There are 3 contrast errors due to placeholder text in Employment start date, Employment end date and warnign text at the bottom of the form that reminds the user all fields are required.
+
+<img width="379" alt="Screenshot 2024-03-06 at 00 04 46" src="https://github.com/david-lorenzo-vargas/References-Form/assets/72414745/0317bfd2-fb50-4804-a382-6708216a98c0">
+
+
