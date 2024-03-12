@@ -1,4 +1,4 @@
-import { FormFields } from "../Types/types";
+import { Employer, FormFields } from "../Types/types";
 
 export const formatReferencesPostBody = (
   obj: FormFields,
@@ -10,15 +10,13 @@ export const formatReferencesPostBody = (
       last_name: obj.lastName,
       current_address: obj.personalAddress,
     },
-    employer: [
-      {
-        name: obj.employerName,
-        start_date: new Date(obj.startDate).getTime(),
-        end_date: currentlyWorking
-          ? undefined
-          : new Date(obj.endDate).getTime(),
-      },
-    ],
+    employer: obj.employer.map((e: Employer) => ({
+      name: e.name,
+      start_date: e.start_date,
+      end_date: currentlyWorking
+        ? undefined
+        : e?.end_date,
+    })),
     guarantor: {
       name: obj.guarantorName,
       address: obj.guarantorAddress,
