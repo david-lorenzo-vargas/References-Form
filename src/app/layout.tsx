@@ -1,3 +1,4 @@
+import GoodLordLogo from "./Components/icons/GoodLordLogo";
 import "./globals.css";
 
 export const metadata = {
@@ -12,7 +13,14 @@ const RootLayout = ({
 }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className="flex h-screen flex-col items-center justify-center bg-veryDarkBlue pb-10">
+          <div className="w-full pl-10">
+            <GoodLordLogo size="150"/>
+          </div>
+          {children}
+        </main>
+      </body>
     </html>
   )
 };

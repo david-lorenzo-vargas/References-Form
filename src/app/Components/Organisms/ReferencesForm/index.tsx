@@ -18,7 +18,7 @@ import Input from "../../Atoms/Input";
 import CheckBox from "../../Atoms/CheckBox";
 import Dropdown from "../../Atoms/Dropdown";
 import Modal from "../../Atoms/Modal";
-import FormSectionWrapper from "../FormSectionWrapper";
+import FormSectionWrapper from "../../Molecules/FormSectionWrapper";
 import DateField from "./DateField";
 
 import Asterisk from "../../icons/Asterisk";
@@ -81,10 +81,10 @@ const ReferencesForm = (): ReactElement => {
     mode: 'onChange',
   });
 
-  const {fields, append} = useFieldArray({
+  const { fields, append } = useFieldArray({
     name: 'employer',
     control,
-    }
+  }
   );
 
   const [currentlyWorking, setCurrentlyWorking] = useState<boolean>(false);
@@ -113,7 +113,7 @@ const ReferencesForm = (): ReactElement => {
   }, []);
 
   console.log(watch('employer'))
-  console.log('ST',watch(`employer.${emplpoyerIndex}.start_date`)?.getTime())
+  console.log('ST', watch(`employer.${emplpoyerIndex}.start_date`)?.getTime())
   console.log('ND', watch(`employer.${emplpoyerIndex}.end_date`)?.getTime())
 
   return (
@@ -265,7 +265,7 @@ const ReferencesForm = (): ReactElement => {
                       </FormSectionWrapper>
                     </div>
                   ))}
-                  {checkEmploymentLength(watch(`employer.${fields.length -1 }.start_date`), watch(`employer.${fields.length - 1}.end_date`)) && (
+                  {checkEmploymentLength(watch(`employer.${fields.length - 1}.start_date`), watch(`employer.${fields.length - 1}.end_date`)) && (
                     <div className="w-full flex flex-row items-center justify-end">
                       <Button
                         rounded="rounded-full"
