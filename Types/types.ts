@@ -15,19 +15,17 @@ type Guarantor = {
   relation?: RelationShipEnum
 }
 
-type Employer = {
+export type Employer = {
   name: string,
-  "start_date": number,
-  "end_date"?: number,
+  "start_date": Date,
+  "end_date"?: Date,
 }
 
 export type FormFields = {
   firstName: string,
   lastName: string,
   personalAddress: string,
-  employerName: string,
-  startDate: Date,
-  endDate: Date,
+  employer: Employer[],
   guarantorName: string,
   guarantorAddress: string,
   relationshipToGuarantor: RelationShipEnum | undefined,
