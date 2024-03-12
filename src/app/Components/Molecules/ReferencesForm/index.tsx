@@ -6,6 +6,8 @@ import {
   SubmitHandler,
   Controller,
   ControllerRenderProps,
+  useFieldArray,
+  FieldArrayWithId,
 } from "react-hook-form";
 import DatePicker from "react-datepicker";
 
@@ -30,6 +32,8 @@ import {
 import { postData } from "../../../../../Util/API/postReferencesForm";
 import { nameRegex } from "../../../../../Util/regex";
 import { formatReferencesPostBody } from "../../../../../Util/formatReferencesPostBody";
+import { checkEmploymentLength } from "../../../../../Util/checkEmploymentLength";
+import { datesAreValid } from "../../../../../Util/datesAreValid";
 
 const dropdownOptions = [
   {
@@ -63,9 +67,13 @@ const ReferencesForm = (): ReactElement => {
       firstName: "",
       lastName: "",
       personalAddress: "",
-      employerName: "",
-      startDate: undefined,
-      endDate: undefined,
+      employer: [
+        {
+          name: '',
+          start_date: undefined,
+          end_date: undefined,
+        }
+      ],
       guarantorName: "",
       guarantorAddress: "",
       relationshipToGuarantor: undefined,
@@ -73,8 +81,16 @@ const ReferencesForm = (): ReactElement => {
     mode: 'onChange',
   });
 
+  const {fields, append} = useFieldArray({
+    name: 'employer',
+    control,
+    }
+  );
+
   const [currentlyWorking, setCurrentlyWorking] = useState<boolean>(false);
   const [dateModal, setDateModal] = useState<DateModal | undefined>(undefined);
+
+  const [emplpoyerIndex, setEmployerIndex] = useState<number>(0);
 
   const onCurrentlyWorking = useCallback(() => {
     setCurrentlyWorking((c: boolean) => !c);
@@ -86,14 +102,19 @@ const ReferencesForm = (): ReactElement => {
     postData(body).then((data: Response) => console.log({ data }));
   }, [currentlyWorking]);
 
-  const onDateField = useCallback((modal: DateModal) => {
+  const onDateField = useCallback((modal: DateModal, ix: number) => {
     setDateModal(() => modal);
+    setEmployerIndex(() => ix);
   }, []);
 
   const onResetForm = useCallback(() => {
     reset();
     setCurrentlyWorking(() => false);
   }, []);
+
+  console.log(watch('employer'))
+  console.log('ST',watch(`employer.${emplpoyerIndex}.start_date`)?.getTime())
+  console.log('ND', watch(`employer.${emplpoyerIndex}.end_date`)?.getTime())
 
   return (
     <>
@@ -176,70 +197,94 @@ const ReferencesForm = (): ReactElement => {
                   </FormSectionWrapper>
                 </div>
                 <div className="mb-5">
-                  <FormSectionWrapper title="Employer">
-                    <div>
-                      <div className="mb-3">
-                        <Input
-                          label="Employer name"
-                          placeholder="Enter your employer's name"
-                          rounded="rounded-full"
-                          inputName="employerName"
-                          register={register("employerName", {
-                            required: true,
-                            validate: (value: string) => {
-                              if (!nameRegex.test(value)) {
-                                return "Sorry, numbers and special characters are not allowed"
-                              }
+                  {fields.map((f: FieldArrayWithId<FormFields, 'employer'>, index: number) => (
+                    <div key={f.id} className="mb-3">
+                      <FormSectionWrapper title="Employer">
+                        <div>
+                          <div className="mb-3">
+                            <Input
+                              label="Employer name"
+                              placeholder="Enter your employer's name"
+                              rounded="rounded-full"
+                              inputName="employerName"
+                              register={register(`employer.${index}.name`, {
+                                required: true,
+                                validate: (value: string) => {
+                                  if (!nameRegex.test(value)) {
+                                    return "Sorry, numbers and special characters are not allowed"
+                                  }
 
-                              return true;
-                            }
-                          })}
-                          errorMessage={formState.errors.employerName?.message}
-                        />
-                      </div>
-                      <div className="mb-3 flex flex-col md:flex-row items-center -mx-2">
-                        <div className="px-2 w-full">
-                          <DateField
-                            title="Employment start date"
-                            placeholder="Select start date"
-                            onDateField={() => onDateField(DateModal.from)}
-                            date={watch("startDate")}
-                            buttonId="dateFieldFrom"
-                          />
+                                  return true;
+                                }
+                              })}
+                              errorMessage={formState.errors?.employer?.[index]?.name ? "error" : ''}
+                            />
+                          </div>
+                          <div className="mb-3 flex flex-col md:flex-row items-center -mx-2">
+                            <div className="px-2 w-full">
+                              <DateField
+                                title="Employment start date"
+                                placeholder="Select start date"
+                                onDateField={() => onDateField(DateModal.from, index)}
+                                date={watch(`employer.${index}.start_date`)}
+                                buttonId="dateFieldFrom"
+                              />
+                            </div>
+                            <div className="px-2 w-full">
+                              <DateField
+                                title="Employment end date"
+                                placeholder="Select end date"
+                                onDateField={() => onDateField(DateModal.to, index)}
+                                date={watch(`employer.${index}.end_date`)}
+                                disabled={currentlyWorking}
+                                buttonId="dateFieldTo"
+                              />
+                            </div>
+                          </div>
+                          {datesAreValid(watch(`employer.${index}.start_date`), watch(`employer.${index}.end_date`)) && (
+                            <span className="text-sm text-cancelRed">
+                              End date cannot be before start date
+                            </span>
+                          )}
+                          <div
+                            className="flex flex-row items-center md:justify-end mb-3 cursor-pointer"
+                            onClick={onCurrentlyWorking}
+                          >
+                            <CheckBox
+                              boxId="rememberMe"
+                              size="h-5 w-5"
+                              checked={currentlyWorking}
+                            />
+                            <div className="ml-3">
+                              <span className="text-sm text-veryDarkBlue">
+                                I am currently working
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="px-2 w-full">
-                          <DateField
-                            title="Employment end date"
-                            placeholder="Select end date"
-                            onDateField={() => onDateField(DateModal.to)}
-                            date={watch("endDate")}
-                            disabled={currentlyWorking}
-                            buttonId="dateFieldTo"
-                          />
-                        </div>
-                      </div>
-                      {new Date(watch('endDate')).getTime() < new Date(watch('startDate')).getTime() && (
-                        <span className="text-sm text-cancelRed">
-                          End date cannot be before start date
-                        </span>
-                      )}
-                      <div
-                        className="flex flex-row items-center md:justify-end mb-3 cursor-pointer"
-                        onClick={onCurrentlyWorking}
-                      >
-                        <CheckBox
-                          boxId="rememberMe"
-                          size="h-5 w-5"
-                          checked={currentlyWorking}
-                        />
-                        <div className="ml-3">
-                          <span className="text-sm text-veryDarkBlue">
-                            I am currently working
-                          </span>
-                        </div>
-                      </div>
+                      </FormSectionWrapper>
                     </div>
-                  </FormSectionWrapper>
+                  ))}
+                  {checkEmploymentLength(watch(`employer.${fields.length -1 }.start_date`), watch(`employer.${fields.length - 1}.end_date`)) && (
+                    <div className="w-full flex flex-row items-center justify-end">
+                      <Button
+                        rounded="rounded-full"
+                        bgColour="bg-veryDarkBlue"
+                        id="adEmployerButton"
+                        padding="px-5 py-2"
+                        type="button"
+                        onClick={() => append({
+                          name: '',
+                          start_date: new Date(),
+                          end_date: undefined,
+                        })}
+                      >
+                        <span className="text-white">
+                          Add Employer
+                        </span>
+                      </Button>
+                    </div>
+                  )}
                 </div>
                 <div className="mb-5">
                   <FormSectionWrapper title="Guarantor">
@@ -318,7 +363,7 @@ const ReferencesForm = (): ReactElement => {
                       rounded="rounded-full"
                       bgColour="bg-teal"
                       padding="px-5 py-2"
-                      disabled={!formState.isValid || new Date(watch('endDate')).getTime() < new Date(watch('startDate')).getTime()}
+                      disabled={!formState.isValid}
                     >
                       <span className="text-veryDarkBlue font-semibold">
                         Send
@@ -340,14 +385,14 @@ const ReferencesForm = (): ReactElement => {
                   rules={{
                     required: true,
                   }}
-                  name={`${dateModal === DateModal.from ? 'startDate' : 'endDate'}`}
-                  render={({ field }: { field: ControllerRenderProps<FormFields, 'endDate' | 'startDate'> }) => (
+                  name={dateModal === DateModal.from ? `employer.${emplpoyerIndex}.start_date` : `employer.${emplpoyerIndex}.end_date`}
+                  render={({ field }: { field: ControllerRenderProps<FormFields, 'employer'> }) => (
                     <DatePicker
                       onChange={(date: Date) => {
                         setDateModal(() => undefined);
                         field.onChange(date);
                       }}
-                      selected={field.value ? new Date(field.value) : new Date()}
+                      selected={Object.prototype.toString.call(field.value) === '[object Date]' ? new Date(Number(field.value)) : new Date()}
                       className="border border-2 border-mediumGray px-3 py-2 rounded "
                       dateFormat="dd/MM/YYYY"
                       id="datePicker"
